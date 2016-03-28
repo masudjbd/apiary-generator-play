@@ -1,0 +1,60 @@
+FORMAT: 1A
+HOST: http://localhost:2990/jira
+
+# Zephyr Cloud REST API
+Zephyr for Jira(Cloud) REST API allows to access test assets.
+
+Authentication: Use basic authentication for REST authentication, provide Zephyr username and password. Zephyr server responds
+with a cookie containing token. Please use cookies for better performance.
+
+Note: Basic authentication requires that username and password should be in ASCII.
+
+#foreach( $resource in $resources )
+# Group $resource.name
+$resource.groupNotes
+
+#foreach( $operation in $resource.operations )
+$DOUBLE_HASH $operation.name [$operation.path]
+$TRIPLE_HASH $operation.summary [$operation.requestType]
+$operation.description
+
+#if ($operation.pathParam) 
++ Parameters
+#foreach( $pathParam in $operation.pathParam )
+    + $pathParam.name ($pathParam.isRequired, $pathParam.type) ... $pathParam.description
+#end
+
+#end
+
+#if ($operation.queryParams) 
++ Parameters
+#foreach( $queryParam in $operation.queryParams )
+    + $queryParam.name ($queryParam.isRequired, $queryParam.type) ... $queryParam.description
+#end
+
+#end
+
+#if ($operation.jsonRequest) 
++ Request ($operation.consumes)
+
+#foreach( $jsonRequestSingleLine in $operation.jsonRequest )
+        $jsonRequestSingleLine
+#end
+
+#end
+## end of if operation.jsonRequest
+#if ($operation.jsonResponse)
++ Response $operation.responseCode ($operation.produces)
+
+#foreach( $jsonResponseSingleLine in $operation.jsonResponse )
+        $jsonResponseSingleLine
+#end
+
+#end
+## end of ifoperation.jsonResponse
+
+#end
+## end of operation
+
+#end
+## end of resource
