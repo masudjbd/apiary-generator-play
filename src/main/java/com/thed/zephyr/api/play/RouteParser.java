@@ -87,12 +87,23 @@ public class RouteParser  {
                         List<String> additionalResource = new ArrayList<String>();
                         additionalResource.add(httpMethod);
                         additionalResource.add(actualMethod);
-                        if(clazz.length()>0)
-                        resourceList1.put(resource,additionalResource);
-                        //First Filter Map:End
+                        if(clazz.length()>0) {
+                            Map<String, String> pathParams = getPathAndQueryParams(resource, actualMethod).get(0);
+                            Map<String, String> queryParams = getPathAndQueryParams(resource, actualMethod).get(1);
+                            if (null != pathParams && !pathParams.isEmpty()) {
+                                for (String paramName : pathParams.keySet()) {
+                                    resource = modifyPathParamInResource(resource, paramName);
+                                }
+                            }
+                            if (null != queryParams && !queryParams.isEmpty()) {
+                                resource = modifyQueryParamInResource(resource, queryParams.keySet());
+                            }
+                            resourceList1.put(resource, additionalResource);
+                        }
+                            //First Filter Map:End
 
-                        if(!clazz.equals("") && !clazz.equals("lang"))
-                        classSet.add(clazz);
+                            if(!clazz.equals("") && !clazz.equals("lang"))
+                            classSet.add(clazz);
 
                     }
                 }
@@ -240,6 +251,25 @@ public class RouteParser  {
             System.out.println("Error: "+e);
         }
 
+    }
+
+    private String modifyPathParamInResource(String path, String paramName) {
+        if (path.contains(paramName)) {
+            path = path.replace(":" + paramName, "{" + paramName + "}");
+        }
+        return path;
+    }
+    private String modifyQueryParamInResource(String path, Set<String> params) {
+        if (null != params && !params.isEmpty()) {
+            Iterator<String> setItr = params.iterator();
+            path = path + "{?" + setItr.next();
+            params.remove(0);
+            while (setItr.hasNext()) {
+                path = path + "," + setItr.next();
+            }
+            path = path + "}";
+        }
+        return path;
     }
 
     /**
