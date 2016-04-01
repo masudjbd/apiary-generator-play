@@ -4,10 +4,10 @@ HOST: http://localhost:2990/jira
 # Zephyr Cloud REST API
 Zephyr for Jira(Cloud) REST API allows to access test assets.
 
-Authentication: Use basic authentication for REST authentication, provide Zephyr username and password. Zephyr server responds
-with a cookie containing token. Please use cookies for better performance.
+Authentication: Use JWT authentication for Zephyr REST API authentication, provide Zephyr AccessKey and secretkey. Zephyr server responds
+with a cookie containing acpt token. Please use cookies for authentication.
 
-Note: Basic authentication requires that username and password should be in ASCII.
+Note: JWT authentication requires username and tenantId to generate accessKey and secretKey.
 
 #foreach( $resource in $resources )
 # Group $resource.name
@@ -18,7 +18,7 @@ $DOUBLE_HASH $operation.name [$operation.path]
 $TRIPLE_HASH $operation.summary [$operation.requestType]
 $operation.description
 
-#if ($operation.pathParam) 
+#if ($operation.pathParam.size() > 0)
 + Parameters
 #foreach( $pathParam in $operation.pathParam )
     + $pathParam.name ($pathParam.isRequired, $pathParam.type) ... $pathParam.description
@@ -26,7 +26,7 @@ $operation.description
 
 #end
 
-#if ($operation.queryParams) 
+#if ($operation.queryParams.size() > 0)
 + Parameters
 #foreach( $queryParam in $operation.queryParams )
     + $queryParam.name ($queryParam.isRequired, $queryParam.type) ... $queryParam.description
