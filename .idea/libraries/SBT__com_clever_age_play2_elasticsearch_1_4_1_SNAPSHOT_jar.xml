@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="SBT: com.clever-age:play2-elasticsearch:1.4.1-SNAPSHOT:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.clever-age/play2-elasticsearch/jars/play2-elasticsearch-1.4.1-SNAPSHOT.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/clever-age/play2-elasticsearch/1.4.1-SNAPSHOT/play2-elasticsearch-1.4.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.clever-age/play2-elasticsearch/srcs/play2-elasticsearch-1.4.1-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

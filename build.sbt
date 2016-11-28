@@ -49,7 +49,7 @@ resolvers +=  "Atlassian's Maven Public Repository" at "https://maven.atlassian.
 
 resolvers += "pk11" at "http://pk11-scratch.googlecode.com/svn/trunk"
 
-resolvers += "inhouse repo" at "http://192.168.100.200:9999/repository"
+//resolvers += "inhouse repo" at "http://192.168.100.200:9999/repository"
 
 resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 

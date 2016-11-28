@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SBT: tyrex:tyrex:1.0.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/activator/activator-dist-1.3.6/repository/tyrex/tyrex/1.0.1/jars/tyrex.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/tyrex/tyrex/jars/tyrex-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

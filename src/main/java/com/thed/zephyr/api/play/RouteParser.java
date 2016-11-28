@@ -19,6 +19,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.reflections.Reflections;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
+import scala.runtime.ArrayCharSequence;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -41,7 +42,7 @@ public class RouteParser  {
 
     private String vmFile = "apiary.vm";
 
-    private static String BASE_PATH = "E:/Projects/ZFJCloud/target/scala-2.10/classes/";
+    private static String BASE_PATH = "../zfjconnect/target/scala-2.10/classes/";
 
     private String outputFileName="target/apiary.txt";
 
@@ -98,7 +99,9 @@ public class RouteParser  {
                             if (null != queryParams && !queryParams.isEmpty()) {
                                 resource = modifyQueryParamInResource(resource, queryParams.keySet());
                             }
-                            resourceList1.put(resource, additionalResource);
+                            if(resource.length() > 10) {
+                                resourceList1.put(httpMethod + "_" + resource, additionalResource);
+                            }
                         }
                             //First Filter Map:End
 
@@ -123,7 +126,7 @@ public class RouteParser  {
                 r.setName(extractControllerPrefix(k));
 
                     for(Map.Entry<String, List<String>> entry : resourceList1.entrySet()) {
-                        String key = entry.getKey();
+                        String key = entry.getKey().split("_")[1];
                         List<String> ar = entry.getValue();
                         String httpMethod = ar.get(0);
                         String actualMethod = ar.get(1);
@@ -730,7 +733,7 @@ public class RouteParser  {
                 }
             }
         }
-        return line;
+        return line.replace("java.lang.",""); //if we have direct util class name appended in params
     }
 
     /**

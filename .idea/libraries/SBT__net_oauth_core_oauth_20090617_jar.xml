@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: net.oauth.core:oauth:20090617:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.oauth.core/oauth/jars/oauth-20090617.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.oauth.core/oauth/srcs/oauth-20090617-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: org.apache.httpcomponents:httpasyncclient-cache:4.0-beta3-atlassian-1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.httpcomponents/httpasyncclient-cache/jars/httpasyncclient-cache-4.0-beta3-atlassian-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.httpcomponents/httpasyncclient-cache/srcs/httpasyncclient-cache-4.0-beta3-atlassian-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

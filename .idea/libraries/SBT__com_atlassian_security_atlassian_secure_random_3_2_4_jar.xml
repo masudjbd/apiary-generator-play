@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SBT: com.atlassian.security:atlassian-secure-random:3.2.4:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.atlassian.security/atlassian-secure-random/jars/atlassian-secure-random-3.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

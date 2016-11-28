@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.basho.riak:riak-client:2.0.0:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.basho.riak/riak-client/jars/riak-client-2.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.basho.riak/riak-client/srcs/riak-client-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

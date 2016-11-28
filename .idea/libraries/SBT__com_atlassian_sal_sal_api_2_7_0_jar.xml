@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.atlassian.sal:sal-api:2.7.0:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.atlassian.sal/sal-api/jars/sal-api-2.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.atlassian.sal/sal-api/srcs/sal-api-2.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: com.atlassian.httpclient:atlassian-httpclient-spi:0.13.2:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.atlassian.httpclient/atlassian-httpclient-spi/jars/atlassian-httpclient-spi-0.13.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.atlassian.httpclient/atlassian-httpclient-spi/srcs/atlassian-httpclient-spi-0.13.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
