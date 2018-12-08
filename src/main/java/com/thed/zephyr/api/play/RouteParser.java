@@ -19,7 +19,6 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.reflections.Reflections;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
-import scala.runtime.ArrayCharSequence;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -237,7 +236,7 @@ public class RouteParser  {
                         }
                     }
                 if (ops != null && !ops.isEmpty()) {
-                    r.setGroupNotes(k + "");
+                    r.setGroupNotes(appendResourcePrefix(k) + "");
                     r.setPath(" ");
                     r.setConsumes("application/json");
                     r.setConsumes("application/json");
@@ -545,7 +544,7 @@ public class RouteParser  {
     private String getApiDescription(Annotation[] paramAnnotaions) {
         for (Annotation ax: paramAnnotaions) {
             if (ax instanceof ApiParam) {
-                return ((ApiParam) ax).value() ;
+                return ((ApiParam) ax).value().replace("\n","<br />").replace("\t","&nbsp; ") ;
             }
         }
         return "TODO: please provide a description" ;
@@ -596,6 +595,9 @@ public class RouteParser  {
         return name ;
     }
 
+    private String appendResourcePrefix(String s){
+        return s.replace("Controller", "").concat(" Resource");
+    }
 
     private String extractControllerPrefix(String str){
         return str.replace("Controller","");
@@ -619,7 +621,6 @@ public class RouteParser  {
 
         List<Resource> list = new ArrayList<Resource>();
         for(Class type : sortedTypes){
-            System.out.println("type: Masud");
 
             if(type.getName().startsWith(packageName) && type.isInterface()){
                 try {
@@ -769,7 +770,7 @@ public class RouteParser  {
     public String getClassName(String str){
         String[] pr = str.split(Pattern.quote("."));
         str=pr[pr.length-2];
-        if(!"Assets".equals(str)) {
+        if(!"Assets".equals(str) && !"AuditingController".equals(str)) {
             return str;
         }else{
             return "";

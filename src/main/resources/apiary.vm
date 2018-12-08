@@ -7,7 +7,17 @@ Zephyr for Jira(Cloud) REST API allows to access test assets.
 Authentication: Use JWT authentication for Zephyr REST API authentication, provide Zephyr AccessKey and secretkey. Zephyr server responds
 with a cookie containing acpt token. Please use cookies for authentication.
 
-Note: JWT authentication requires username and tenantId to generate accessKey and secretKey.
+Note: JWT authentication requires username, accountId and tenantId to generate accessKey and secretKey.
+If you use custom JWT generator, please use the following context as JWT claim, Since accountId is mandatory field:
+<br />
+&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"context": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user": {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "123456:1234abcd-1234-abcd-1234-1234abcd1234"
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br />}<br />
+JWT Reference: https://developer.atlassian.com/cloud/jira/platform/understanding-jwt/
 
 #foreach( $resource in $resources )
 # Group $resource.name
